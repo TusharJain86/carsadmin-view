@@ -2,33 +2,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRentalSystem {
-    //this is the class for the Car Rental System
-
-    private List<Car> cars; //list to store cars
+    private List<Car> cars; // list to store cars
 
     public CarRentalSystem() {
         cars = new ArrayList<>();
     }
 
-    //method to add a car to the system
+    // Add a car
     public void addCar(Car car){
         cars.add(car);
     }
 
-    //method to display all cars
-    public void displayCars(){
+    // Remove a car by ID
+    public void removeCar(int id){
+        Car toRemove = null;
+        for (Car car : cars) {
+            if (car.getID() == id) {
+                toRemove = car;
+                break;
+            }
+        }
+        if (toRemove != null) {
+            cars.remove(toRemove);
+        } else {
+            throw new IllegalArgumentException("Car ID not found");
+        }
+    }
 
-        //check if there are no cars
+    // Get all cars (for GUI display)
+    public List<Car> getCars(){
+        return cars;
+    }
+
+    // Optional: display in console
+    public void displayCars(){
         if(cars.isEmpty()){
             System.out.println("No cars available in the system.");
             return;
         }
-
-        else{
-            //using for-each loop to iterate through the list of cars
-            for(Car car : cars){
-                System.out.println(car.toString());
-            }
+        for(Car car : cars){
+            System.out.println(car.toString());
         }
     }
 }
