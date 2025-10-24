@@ -11,7 +11,8 @@ public class Car{
         this.rentPerDay = rentPerDay;
     }
 
-    //getter and setter methods
+    /*---------------getter and setter methods-----------------*/
+
     public int getID(){return id;}
     public void setID(int id){this.id = id;}
 
@@ -24,7 +25,10 @@ public class Car{
     public double getRentPerDay(){return rentPerDay;}
     public void setRentPerDay(double rentPerDay){this.rentPerDay = rentPerDay;}
 
-    //toString method
+    //using getter and setter methods to manipulate private variables
+
+    /*---------------toString method----------------*/
+    
     @Override
     public String toString(){
         return "Car ID: " + id + ", Brand: " + brand + ", Model: " + model + ", Rent per Day: $" + rentPerDay;
